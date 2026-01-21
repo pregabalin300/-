@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация | CrySquad Store</title>
+    
+    <!-- Подключение шрифтов Archivo Black и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <style>
+        /* Стили для навигации назад */
+        .back-to-home {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .back-to-home a {
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-to-home a:hover {
+            color: var(--accent-hover);
+        }
+        
+        /* Стили для блока преимуществ */
+        .benefits {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: rgba(158, 255, 0, 0.05);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(158, 255, 0, 0.1);
+        }
+        
+        .benefits h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .benefits-list {
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .benefits-list i {
+            color: var(--accent-color);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Логотип -->
+                <a href="index.html" class="logo">
+                    CRY<span>SQUAD</span>
+                </a>
+                
+                <!-- Навигация -->
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Главная
+                    </a>
+                    <a href="shop.html" class="nav-link">
+                        <i class="fas fa-store"></i> Магазин
+                    </a>
+                    <a href="collections.html" class="nav-link">
+                        <i class="fas fa-images"></i> Коллекции
+                    </a>
+                    <a href="lookbook.html" class="nav-link">
+                        <i class="fas fa-camera"></i> Lookbook
+                    </a>
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i> О нас
+                    </a>
+                    <a href="register.html" class="nav-link active">
+                        <i class="fas fa-user-plus"></i> Регистрация
+                    </a>
+                </nav>
+                
+                <!-- Действия в шапке -->
+                <div class="header-actions">
+                    <a href="#" class="icon-link">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="icon-link">
+                        <i class="far fa-heart"></i>
+                    </a>
+                    <a href="#" class="icon-link" style="position: relative;">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <a href="register.html" class="nav-link mobile-register">
+                        <i class="far fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Секция регистрации -->
+    <section class="register-section">
+        <div class="container">
+            <!-- Навигация назад -->
+            <div class="back-to-home">
+                <a href="index.html">
+                    <i class="fas fa-arrow-left"></i>
+                    Вернуться на главную
+                </a>
+            </div>
+            
+            <div class="register-container fade-in">
+                <div class="register-header">
+                    <h1>СОЗДАТЬ АККАУНТ</h1>
+                    <p>Присоединяйтесь к сообществу CrySquad. Эксклюзивный доступ к пре-драфтам и скидкам.</p>
+                </div>
+                
+                <!-- Форма регистрации -->
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Имя и фамилия</label>
+                        <input type="text" id="name" class="form-input" placeholder="Иван Иванов" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email адрес</label>
+                        <input type="email" id="email" class="form-input" placeholder="example@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">Пароль</label>
+                        <input type="password" id="password" class="form-input" placeholder="Не менее 8 символов" required>
+                        <div class="small mt-20">
+                            <i class="fas fa-info-circle accent-text"></i>
+                            Используйте буквы, цифры и специальные символы
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword" class="form-label">Подтверждение пароля</label>
+                        <input type="password" id="confirmPassword" class="form-input" placeholder="Повторите ваш пароль" required>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">
+                            Я соглашаюсь с <a href="#">Условиями использования</a> и <a href="#">Политикой конфиденциальности</a> CrySquad Store
+                        </label>
+                    </div>
+                    
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="newsletter" checked>
+                        <label for="newsletter">
+                            <span class="accent-text"><i class="fas fa-gift"></i> Бонус:</span> 
+                            Получать уведомления о новых коллекциях, эксклюзивных предложениях и закрытых распродажах
+                        </label>
+                    </div>
+                    
+                    <!-- Кнопки действий -->
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button type="submit" class="btn" style="flex: 1;">
+                            <i class="fas fa-user-plus"></i>
+                            Зарегистрироваться
+                        </button>
+                        
+                    </div>
+                </form>
+                
+                <div class="divider">
+                    <span>Или войти через</span>
+                </div>
+                
+                <div class="social-register">
+                    <button type="button" class="social-btn vk">
+                        <i class="fab fa-vk"></i> VK
+                    </button>
+                    <button type="button" class="social-btn google">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button type="button" class="social-btn apple">
+                        <i class="fab fa-apple"></i> Apple
+                    </button>
+                </div>
+                
+                <!-- Блок преимуществ регистрации -->
+                <div class="benefits">
+                    <h3>Преимущества аккаунта:</h3>
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-bolt"></i>
+                            <span>Ранний доступ к новым коллекциям (за 24 часа до всех)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-percentage"></i>
+                            <span>Специальные скидки для зарегистрированных пользователей</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-history"></i>
+                            <span>История заказов и быстрый повторный заказ</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-heart"></i>
+                            <span>Личный список избранного товаров</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-gift"></i>
+                            <span>Участие в закрытых распродажах и эксклюзивных дропах</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Альтернативные действия -->
+                <div class="login-link" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border-color);">
+                    <p style="margin-bottom: 15px; color: var(--text-secondary); text-align: center;">
+                        <i class="fas fa-store accent-text"></i> Хотите просто посмотреть товары?
+                    </p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                        <a href="shop.html" class="btn btn-outline" style="flex: 1; min-width: 150px;">
+                            <i class="fas fa-shopping-bag"></i>
+                            В магазин
+                        </a>
+                        <a href="collections.html" class="btn btn-outline" style="flex: 1; min-width: 150px;">
+                            <i class="fas fa-images"></i>
+                            Коллекции
+                        </a>
+                        <a href="lookbook.html" class="btn btn-outline" style="flex: 1; min-width: 150px;">
+                            <i class="fas fa-camera"></i>
+                            Lookbook
+                        </a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <p style="color: var(--text-inactive); font-size: 14px;">
+                            Уже есть аккаунт? <a href="login.html" style="color: var(--accent-color); font-weight: 600;">Войти в систему</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>CRYSQUAD STORE</h4>
+                    <p class="small">
+                        Официальный магазин мерча музыкального объединения CrySquad.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="VK">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>БЫСТРАЯ НАВИГАЦИЯ</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная страница</a></li>
+                        <li><a href="shop.html">Магазин товаров</a></li>
+                        <li><a href="collections.html">Коллекции</a></li>
+                        <li><a href="lookbook.html">Lookbook</a></li>
+                        <li><a href="about.html">О CrySquad</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>АККАУНТ</h4>
+                    <ul class="footer-links">
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="login.html">Войти</a></li>
+                        <li><a href="#">Забыли пароль?</a></li>
+                        <li><a href="#">Личный кабинет</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>ПОМОЩЬ</h4>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ и помощь</a></li>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="contact.html">Контакты</a></li>
+                        <li><a href="mailto:store@crysquad.com">
+                            <i class="fas fa-envelope accent-text"></i> store@crysquad.com
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 CrySquad Store. Все права защищены.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Главная</a>
+                    <a href="register.html">Регистрация</a>
+                    <a href="shop.html">Магазин</a>
+                    <a href="#">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript для формы регистрации -->
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Валидация
+            if (password !== confirmPassword) {
+                showNotification('Пароли не совпадают!', 'error');
+                return;
+            }
+            
+            if (password.length < 8) {
+                showNotification('Пароль должен содержать не менее 8 символов', 'error');
+                return;
+            }
+            
+            if (!email.includes('@') || !email.includes('.')) {
+                showNotification('Введите корректный email адрес', 'error');
+                return;
+            }
+            
+            // Показываем успешное уведомление
+            showNotification(`Добро пожаловать в CrySquad, ${name}! Проверьте вашу почту для подтверждения.`, 'success');
+            
+            // В реальном приложении здесь был бы AJAX-запрос на сервер
+            setTimeout(() => {
+                window.location.href = 'index.html?welcome=true';
+            }, 2000);
+        });
+        
+        // Обработка социальных кнопок
+        document.querySelectorAll('.social-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const provider = this.textContent.trim();
+                showNotification(`В реальном приложении здесь была бы интеграция с ${provider}`, 'info');
+            });
+        });
+        
+        // Функция показа уведомлений
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            
+            let icon = 'fas fa-info-circle';
+            let color = '#9EFF00';
+            
+            if (type === 'error') {
+                icon = 'fas fa-exclamation-circle';
+                color = '#FF6B6B';
+            } else if (type === 'success') {
+                icon = 'fas fa-check-circle';
+                color = '#9EFF00';
+            }
+            
+            notification.innerHTML = `
+                <div class="notification-content" style="display: flex; align-items: center; gap: 12px;">
+                    <i class="${icon}" style="color: ${color}; font-size: 20px;"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background-color: #2A2A2A;
+                color: #FFFFFF;
+                padding: 18px 24px;
+                border-radius: 8px;
+                border-left: 4px solid ${color};
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+                z-index: 9999;
+                animation: slideIn 0.4s ease-out;
+                max-width: 400px;
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+                backdrop-filter: blur(10px);
+                border: 1px solid #333333;
+            `;
+            
+            // Анимация
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                
+                @keyframes slideOut {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            // Удаляем через 4 секунды
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.4s ease-out forwards';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 400);
+            }, 4000);
+        }
+        
+        // Приветственное сообщение при переходе с регистрации
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('welcome') === 'true') {
+                showNotification('Добро пожаловать в CrySquad Store! Ваш аккаунт успешно создан.', 'success');
+            }
+        });
+    </script>
+</body>
+</html>

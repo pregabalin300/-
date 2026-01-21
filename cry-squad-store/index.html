@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrySquad Store | Официальный мерч</title>
+    
+    <!-- Подключение шрифтов Archivo Black и Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <style>
+        /* Предзагрузка критичных стилей */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0A0A0A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loading-logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 48px;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .loading-logo span {
+            color: #FF00FF;
+        }
+        
+        .loading-logo::after {
+            content: 'STORE';
+            position: absolute;
+            top: -5px;
+            right: -50px;
+            font-size: 10px;
+            color: #522222;
+            letter-spacing: 1px;
+        }
+        
+        /* Стили для навигационных кнопок */
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .quick-nav {
+            background-color: var(--secondary-bg);
+            padding: 40px 0;
+            margin: 40px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .quick-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .quick-nav-card {
+            background-color: var(--primary-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .quick-nav-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-accent);
+        }
+        
+        .quick-nav-icon {
+            font-size: 32px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .quick-nav-card h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .quick-nav-card p {
+            font-size: 14px;
+            color: var(--text-inactive);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Прелоадер -->
+    <div class="loading" id="loading">
+        <div class="loading-logo">CRY<span>SQUAD</span></div>
+    </div>
+
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Логотип -->
+                <a href="index.html" class="logo">
+                    CRY<span>SQUAD</span>
+                </a>
+                
+                <!-- Навигация -->
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i> Главная
+                    </a>
+                    <a href="shop.html" class="nav-link">
+                        <i class="fas fa-store"></i> Магазин
+                    </a>
+                    <a href="collections.html" class="nav-link">
+                        <i class="fas fa-images"></i> Коллекции
+                    </a>
+                    <a href="lookbook.html" class="nav-link">
+                        <i class="fas fa-camera"></i> Lookbook
+                    </a>
+                    <a href="about.html" class="nav-link">
+                        <i class="fas fa-info-circle"></i> О нас
+                    </a>
+                    <a href="register.html" class="nav-link">
+                        <i class="fas fa-user-plus"></i> Регистрация
+                    </a>
+                </nav>
+                
+                <!-- Действия в шапке -->
+                <div class="header-actions">
+                    <a href="#" class="icon-link">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="icon-link">
+                        <i class="far fa-heart"></i>
+                    </a>
+                    <a href="#" class="icon-link" style="position: relative;">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">3</span>
+                    </a>
+                    <a href="register.html" class="nav-link mobile-register">
+                        <i class="far fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Герой-секция -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h2 class="hero-subtitle">НОВАЯ КОЛЛЕКЦИЯ</h2>
+                <h1 class="hero-title">WINTER DROP 2024</h1>
+                <p class="hero-description">
+                    Эксклюзивный мерч от музыкального объединения CrySquad. Ограниченный тираж. 
+                    Каждый элемент — это часть нашей философии, воплощение звука в материальной форме. 
+                    Стань частью движения.
+                </p>
+                <div class="hero-buttons">
+                    <a href="collections.html" class="btn pulse">
+                        <i class="fas fa-fire"></i>
+                        Смотреть коллекцию
+                    </a>
+                    <a href="shop.html" class="btn btn-secondary">
+                        <i class="fas fa-store"></i>
+                        В магазин
+                    </a>
+                    <a href="register.html" class="btn btn-outline">
+                        <i class="fas fa-user-plus"></i>
+                        Присоединиться
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Быстрая навигация -->
+    <section class="quick-nav">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">БЫСТРЫЙ ДОСТУП</h2>
+                <p class="section-subtitle">
+                    Все что нужно для комфортного шопинга в CrySquad Store
+                </p>
+            </div>
+            
+            <div class="quick-nav-grid">
+                <div class="quick-nav-card fade-in">
+                    <div class="quick-nav-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h4>Присоединиться</h4>
+                    <p>Создайте аккаунт чтобы получить доступ к эксклюзивным предложениям</p>
+                    <a href="register.html" class="btn btn-small">
+                        Регистрация
+                    </a>
+                </div>
+                
+                <div class="quick-nav-card fade-in">
+                    <div class="quick-nav-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h4>Магазин</h4>
+                    <p>Просмотрите весь ассортимент нашего мерча</p>
+                    <a href="shop.html" class="btn btn-small">
+                        Перейти в магазин
+                    </a>
+                </div>
+                
+                <div class="quick-nav-card fade-in">
+                    <div class="quick-nav-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h4>Коллекции</h4>
+                    <p>Изучите тематические подборки товаров</p>
+                    <a href="collections.html" class="btn btn-small">
+                        Смотреть коллекции
+                    </a>
+                </div>
+                
+                <div class="quick-nav-card fade-in">
+                    <div class="quick-nav-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h4>Помощь</h4>
+                    <p>Ответы на частые вопросы о доставке и оплате</p>
+                    <a href="faq.html" class="btn btn-small">
+                        FAQ
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция с избранными товарами -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ПОПУЛЯРНОЕ</h2>
+                <p class="section-subtitle">
+                    Самые востребованные товары среди фанатов CrySquad. Ограниченные тиражи, 
+                    эксклюзивные дизайны.
+                </p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Товар 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge new">NEW</div>
+                    <div class="product-image-container">
+                        <img src="https://crysquad.com/media/CACHE/images/products/HOODY/fae906a98ea4fbb9351f5abece43cfbf.jpg" 
+                             alt="CrySquad Hoodie" class="product-image" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Худи "CrySquad Logo"</h4>
+                        <div class="product-category">Одежда / Худи</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="count">(48)</span>
+                        </div>
+                        <div class="product-price">5 999 ₽</div>
+                        <button class="btn w-100 add-to-cart" data-product="Худи 'CrySquad Logo'">
+                            <i class="fas fa-shopping-bag"></i>
+                            В корзину
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Товар 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-badge sale">-20%</div>
+                    <div class="product-image-container">
+                        <img src="https://crysquad.com/media/CACHE/images/products/TSHIRT_2/e9f179ccc1b59b389612a4867ec3e5e4.jpg" 
+                             alt="CrySquad T-Shirt" class="product-image" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Футболка "Digital Cry"</h4>
+                        <div class="product-category">Одежда / Футболки</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="count">(112)</span>
+                        </div>
+                        <div class="product-price">3 499 ₽ <span class="old-price">4 099 ₽</span></div>
+                        <button class="btn w-100 add-to-cart" data-product="Футболка 'Digital Cry'">
+                            <i class="fas fa-shopping-bag"></i>
+                            В корзину
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Товар 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://crysquad.com/media/CACHE/images/products/CAP1/f504ca09b5caec6d4aec9db196bcf03b.jpg" 
+                             alt="CrySquad Cap" class="product-image" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Кепка "Squad Logo"</h4>
+                        <div class="product-category">Аксессуары / Головные уборы</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <i class="far fa-star"></i>
+                            <span class="count">(67)</span>
+                        </div>
+                        <div class="product-price">3 799 ₽</div>
+                        <button class="btn w-100 add-to-cart" data-product="Кепка 'Squad Logo'">
+                            <i class="fas fa-shopping-bag"></i>
+                            В корзину
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Товар 4 -->
+                <div class="product-card fade-in">
+                    <div class="product-image-container">
+                        <img src="https://crysquad.com/media/CACHE/images/products/BAG_S/e2df14ef57d879414cedab55a629fdb8.jpg" 
+                             alt="CrySquad Poster" class="product-image" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h4 class="product-title">Сумка "Crysquad Military bag"</h4>
+                        <div class="product-category">Аксессуары / Сумки</div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="count">(89)</span>
+                        </div>
+                        <div class="product-price">2 999 ₽</div>
+                        <button class="btn w-100 add-to-cart" data-product="Постер 'Midnight Session'">
+                            <i class="fas fa-shopping-bag"></i>
+                            В корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Кнопка перехода к регистрации после товаров -->
+            <div class="text-center mt-40">
+                <h3 style="margin-bottom: 20px;">Хотите получать уведомления о новых поступлениях?</h3>
+                <p class="section-subtitle" style="margin-bottom: 30px;">
+                    Зарегистрируйтесь чтобы первыми узнавать о новых коллекциях и эксклюзивных скидках
+                </p>
+                <a href="register.html" class="btn btn-accent-secondary">
+                    <i class="fas fa-user-plus"></i>
+                    Зарегистрироваться
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция о CrySquad -->
+    <section class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">О CRYSQUAD</h2>
+                <p class="section-subtitle">
+                    Музыкальное объединение, меняющее звучание города
+                </p>
+            </div>
+            
+            <div class="about-content">
+                <p class="about-text lead">
+                    CrySquad — это больше, чем просто музыкальное объединение. Это артисты, 
+                    продюсеры и дизайнеры, создающие уникальную вселенную на стыке электронной музыки, хип-хопа 
+                    и уличной культуры. Наш мерч — это способ поддержать искусство и стать частью сообщества.
+                </p>
+                <div class="nav-buttons">
+                    <a href="about.html" class="btn btn-outline">
+                        <i class="fas fa-info-circle"></i>
+                        Узнать больше
+                    </a>
+                    <a href="register.html" class="btn">
+                        <i class="fas fa-user-plus"></i>
+                        Присоединиться к сообществу
+                    </a>
+                    <a href="shop.html" class="btn btn-secondary">
+                        <i class="fas fa-store"></i>
+                        Смотреть мерч
+                    </a>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">12K+</div>
+                        <div class="stat-label">Проданных товаров</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Коллекций</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.8</div>
+                        <div class="stat-label">Средний рейтинг</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">2021</div>
+                        <div class="stat-label">Год основания</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Колонка 1 -->
+                <div class="footer-column">
+                    <h4>CRYSQUAD STORE</h4>
+                    <p class="small">
+                        Официальный магазин мерча музыкального объединения CrySquad. 
+                        Эксклюзивные коллекции, ограниченные тиражи, только оригинальный мерч.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="VK">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Spotify">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Колонка 2 -->
+                <div class="footer-column">
+                    <h4>МАГАЗИН</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">Все товары</a></li>
+                        <li><a href="collections.html">Коллекции</a></li>
+                        <li><a href="lookbook.html">Lookbook</a></li>
+                        <li><a href="#">Новинки</a></li>
+                        <li><a href="#">Распродажа</a></li>
+                        <li><a href="#">Лист ожидания</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Колонка 3 -->
+                <div class="footer-column">
+                    <h4>АККАУНТ</h4>
+                    <ul class="footer-links">
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="login.html">Войти</a></li>
+                        <li><a href="#">Забыли пароль?</a></li>
+                        <li><a href="#">Личный кабинет</a></li>
+                        <li><a href="#">История заказов</a></li>
+                        <li><a href="#">Избранное</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Колонка 4 -->
+                <div class="footer-column">
+                    <h4>РАССЫЛКА</h4>
+                    <p class="small">
+                        Подпишитесь, чтобы первыми узнавать о новых дропах, эксклюзивных предложениях 
+                        и закрытых распродажах.
+                    </p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Введите ваш email" class="form-input">
+                        <button class="btn btn-accent-secondary w-100">
+                            <i class="fas fa-paper-plane"></i>
+                            Подписаться
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2024 CrySquad Store. Все права защищены.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Главная</a>
+                    <a href="shop.html">Магазин</a>
+                    <a href="register.html">Регистрация</a>
+                    <a href="#">Контакты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Убираем прелоадер после загрузки страницы
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loading = document.getElementById('loading');
+                if (loading) {
+                    loading.style.opacity = '0';
+                    loading.style.transition = 'opacity 0.5s ease';
+                    setTimeout(function() {
+                        loading.style.display = 'none';
+                    }, 500);
+                }
+            }, 800);
+        });
+        
+        // Обработка кнопок "В корзину"
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.getAttribute('data-product');
+                showNotification(`Товар "${productName}" добавлен в корзину!`, 'success');
+                this.innerHTML = '<i class="fas fa-check"></i> Добавлено';
+                this.classList.add('btn-accent-secondary');
+                this.disabled = true;
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-shopping-bag"></i> В корзину';
+                    this.classList.remove('btn-accent-secondary');
+                    this.disabled = false;
+                }, 2000);
+            });
+        });
+        
+        // Функция показа уведомлений
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            
+            let icon = 'fas fa-info-circle';
+            let color = '#9EFF00';
+            
+            if (type === 'error') {
+                icon = 'fas fa-exclamation-circle';
+                color = '#FF6B6B';
+            } else if (type === 'success') {
+                icon = 'fas fa-check-circle';
+                color = '#9EFF00';
+            }
+            
+            notification.innerHTML = `
+                <div class="notification-content" style="display: flex; align-items: center; gap: 12px;">
+                    <i class="${icon}" style="color: ${color}; font-size: 20px;"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background-color: #2A2A2A;
+                color: #FFFFFF;
+                padding: 18px 24px;
+                border-radius: 8px;
+                border-left: 4px solid ${color};
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+                z-index: 9999;
+                animation: slideIn 0.4s ease-out;
+                max-width: 400px;
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+                backdrop-filter: blur(10px);
+                border: 1px solid #333333;
+            `;
+            
+            // Анимация
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                
+                @keyframes slideOut {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            // Удаляем через 3 секунды
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.4s ease-out forwards';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 400);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
